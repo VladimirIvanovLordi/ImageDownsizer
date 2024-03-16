@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\imagedownsizer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,15 +39,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "ImageDownsizer\\MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.Designer.cs",
-              "RelativeToolTip": "ImageDownsizer\\MainForm.Designer.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAQwCEAAAAdAAAA",
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.cs",
+              "RelativeDocumentMoniker": "ImageDownsizer\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.cs",
+              "RelativeToolTip": "ImageDownsizer\\MainForm.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAswCUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-16T13:29:16.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-16T14:33:01.382Z"
             }
           ]
         }
