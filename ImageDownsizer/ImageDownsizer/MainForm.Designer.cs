@@ -62,12 +62,12 @@
             // 
             // openFileDialog
             // 
-            openFileDialog.Filter = "Bitmap Supported (*.PNG;*.JPG;*.BMP)|*.png;*.jpg;*.bmp|All Files (*.*)|*.*";
+            openFileDialog.Filter = "Bitmap Supported (*.PNG;*.JPG;*.JPEG;*.BMP)|*.png;*.jpg;*.jpeg;*.bmp|All Files (*.*)|*.*";
             openFileDialog.Title = "Load Image";
             // 
             // saveFileDialog
             // 
-            saveFileDialog.Filter = "Bitmap Supported (*.PNG;*.JPG;*.BMP)|*.png;*.jpg;*.bmp|All Files (*.*)|*.*";
+            saveFileDialog.Filter = "Bitmap Supported (*.PNG;*.JPG;*.JPEG;*.BMP)|*.png;*.jpg;*.jpeg;*.bmp|All Files (*.*)|*.*";
             saveFileDialog.Title = "Save Image";
             // 
             // pbSelectedImage
@@ -82,7 +82,7 @@
             // 
             // btnSelectImage
             // 
-            btnSelectImage.Location = new Point(544, 12);
+            btnSelectImage.Location = new Point(543, 12);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.Size = new Size(92, 44);
             btnSelectImage.TabIndex = 3;

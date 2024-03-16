@@ -2,6 +2,8 @@ namespace ImageDownsizer
 {
     public partial class MainForm : Form
     {
+        string selectedImagePath = string.Empty;
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,7 +37,17 @@ namespace ImageDownsizer
 
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
+                SelectImageFromPC();
+        }
 
+        private void SelectImageFromPC()
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                selectedImagePath = openFileDialog.FileName;
+                pbSelectedImage.ImageLocation = selectedImagePath;
+            }
+                
         }
     }
 }
