@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace ImageDownsizer
 {
     public partial class MainForm : Form
@@ -5,7 +7,9 @@ namespace ImageDownsizer
         double downsizingFactor = 0.0;
         string selectedImagePath = string.Empty;
         Bitmap selectedImage;
-        
+        Bitmap downsizedImage;
+
+        Stopwatch stopwatch = new Stopwatch();
 
         public MainForm()
         {
@@ -30,18 +34,22 @@ namespace ImageDownsizer
 
         private void btnDownsizeNonParallel_Click(object sender, EventArgs e)
         {
-            if(!GetDownsizingFactorFromTextBox())
+            if (!GetDownsizingFactorFromTextBox())
                 return;
 
-            if(pbSelectedImage.Image == null)
+            if (pbSelectedImage.Image == null)
             {
                 MessageBox.Show("Select an image to downsize!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             //Thread downsizingThread = new Thread()
+            stopwatch.Restart();
+            downsizedImage = BilinearInterpolationNonParallelDownsizer.DownsizeImage(selectedImage, downsizingFactor);
+            stopwatch.Stop();
 
-            pbSelectedImage.Image = BilinearInterpolationNonParallelDownsizer.DownsizeImage(selectedImage, downsizingFactor);
+            lblNonParallelTime.Text = stopwatch.ElapsedMilliseconds.ToString() + " ms";
+            pbSelectedImage.Image = downsizedImage;
 
         }
 
@@ -53,18 +61,19 @@ namespace ImageDownsizer
 
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
-                SelectImageFromPC();
+            SelectImageFromPC();
         }
 
         private void SelectImageFromPC()
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                selectedImagePath = openFileDialog.FileName;
+                selectedImagePath = openFileDialog.FileName;//probably redundant
+
                 selectedImage = new Bitmap(selectedImagePath);
                 pbSelectedImage.Image = selectedImage;
             }
-                
+
         }
 
 
@@ -86,6 +95,14 @@ namespace ImageDownsizer
 
             return true;
 
+        }
+
+        private void btnSaveDownsizedImage_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                downsizedImage.Save(saveFileDialog.FileName);
+            }
         }
     }
 }

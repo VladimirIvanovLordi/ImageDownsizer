@@ -37,6 +37,10 @@
             lblPictureBoxInfo = new Label();
             tbDownsizingFactorInput = new TextBox();
             lblDownsizingInputPrompt = new Label();
+            lblPercentForTextFox = new Label();
+            lblNonParallelTime = new Label();
+            lblParallelTime = new Label();
+            btnSaveDownsizedImage = new Button();
             ((System.ComponentModel.ISupportInitialize)pbSelectedImage).BeginInit();
             SuspendLayout();
             // 
@@ -105,6 +109,7 @@
             tbDownsizingFactorInput.Name = "tbDownsizingFactorInput";
             tbDownsizingFactorInput.Size = new Size(92, 23);
             tbDownsizingFactorInput.TabIndex = 5;
+            tbDownsizingFactorInput.TextAlign = HorizontalAlignment.Right;
             tbDownsizingFactorInput.KeyPress += tbDownsizingFactor_KeyPress;
             // 
             // lblDownsizingInputPrompt
@@ -116,11 +121,55 @@
             lblDownsizingInputPrompt.TabIndex = 6;
             lblDownsizingInputPrompt.Text = "Enter a number:";
             // 
+            // lblPercentForTextFox
+            // 
+            lblPercentForTextFox.AutoSize = true;
+            lblPercentForTextFox.BackColor = Color.Transparent;
+            lblPercentForTextFox.Location = new Point(637, 183);
+            lblPercentForTextFox.Name = "lblPercentForTextFox";
+            lblPercentForTextFox.Size = new Size(17, 15);
+            lblPercentForTextFox.TabIndex = 7;
+            lblPercentForTextFox.Text = "%";
+            // 
+            // lblNonParallelTime
+            // 
+            lblNonParallelTime.AutoSize = true;
+            lblNonParallelTime.Location = new Point(557, 315);
+            lblNonParallelTime.Name = "lblNonParallelTime";
+            lblNonParallelTime.Size = new Size(63, 15);
+            lblNonParallelTime.TabIndex = 8;
+            lblNonParallelTime.Text = "time taken";
+            lblNonParallelTime.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblParallelTime
+            // 
+            lblParallelTime.AutoSize = true;
+            lblParallelTime.Location = new Point(708, 315);
+            lblParallelTime.Name = "lblParallelTime";
+            lblParallelTime.Size = new Size(63, 15);
+            lblParallelTime.TabIndex = 9;
+            lblParallelTime.Text = "time taken";
+            lblParallelTime.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnSaveDownsizedImage
+            // 
+            btnSaveDownsizedImage.Location = new Point(615, 354);
+            btnSaveDownsizedImage.Name = "btnSaveDownsizedImage";
+            btnSaveDownsizedImage.Size = new Size(92, 56);
+            btnSaveDownsizedImage.TabIndex = 10;
+            btnSaveDownsizedImage.Text = "Save Downsized Image";
+            btnSaveDownsizedImage.UseVisualStyleBackColor = true;
+            btnSaveDownsizedImage.Click += btnSaveDownsizedImage_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSaveDownsizedImage);
+            Controls.Add(lblParallelTime);
+            Controls.Add(lblNonParallelTime);
+            Controls.Add(lblPercentForTextFox);
             Controls.Add(lblDownsizingInputPrompt);
             Controls.Add(tbDownsizingFactorInput);
             Controls.Add(lblPictureBoxInfo);
@@ -146,5 +195,9 @@
         private Label lblPictureBoxInfo;
         private TextBox tbDownsizingFactorInput;
         private Label lblDownsizingInputPrompt;
+        private Label lblPercentForTextFox;
+        private Label lblNonParallelTime;
+        private Label lblParallelTime;
+        private Button btnSaveDownsizedImage;
     }
 }

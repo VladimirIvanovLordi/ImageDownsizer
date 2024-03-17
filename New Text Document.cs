@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -91,9 +91,12 @@ namespace ImageDownsizer
                     int yDown = Math.Min(yUp + 1, originalImage.Height - 1);
 
                     //Calculate weights
-                    double distanceX = originalX - xLeft;
-                    double distanceY = originalY - yUp;
+                    double distanceX = originalX - xLeft; //value should be between 0(left) and 1(right)
+                    double distanceY = originalY - yUp; //value should be between 0(up) and 1(down)
 
+
+                    //double distanceX = xRight - xLeft;
+                    //double distanceY = yDown - yUp;
 
                     int pixelIndexUpLeft = yUp * originalStride / 4 + xLeft;
                     int pixelIndexUpRight = yUp * originalStride / 4 + xRight;
