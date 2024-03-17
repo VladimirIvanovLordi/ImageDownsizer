@@ -37,6 +37,8 @@
             lblPictureBoxInfo = new Label();
             tbDownsizingFactorInput = new TextBox();
             lblDownsizingInputPrompt = new Label();
+            lblNonParallelMessage = new Label();
+            lblParallelMessage = new Label();
             ((System.ComponentModel.ISupportInitialize)pbSelectedImage).BeginInit();
             SuspendLayout();
             // 
@@ -73,10 +75,10 @@
             // pbSelectedImage
             // 
             pbSelectedImage.BorderStyle = BorderStyle.FixedSingle;
-            pbSelectedImage.Location = new Point(38, 12);
+            pbSelectedImage.Location = new Point(12, 12);
             pbSelectedImage.Name = "pbSelectedImage";
-            pbSelectedImage.Size = new Size(500, 300);
-            pbSelectedImage.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbSelectedImage.Size = new Size(525, 426);
+            pbSelectedImage.SizeMode = PictureBoxSizeMode.Zoom;
             pbSelectedImage.TabIndex = 2;
             pbSelectedImage.TabStop = false;
             // 
@@ -95,9 +97,9 @@
             lblPictureBoxInfo.AutoSize = true;
             lblPictureBoxInfo.Location = new Point(544, 69);
             lblPictureBoxInfo.Name = "lblPictureBoxInfo";
-            lblPictureBoxInfo.Size = new Size(139, 15);
+            lblPictureBoxInfo.Size = new Size(142, 15);
             lblPictureBoxInfo.TabIndex = 4;
-            lblPictureBoxInfo.Text = "Picture box size - 500,300";
+            lblPictureBoxInfo.Text = "Picture box size - 525, 426";
             // 
             // tbDownsizingFactorInput
             // 
@@ -116,11 +118,31 @@
             lblDownsizingInputPrompt.TabIndex = 6;
             lblDownsizingInputPrompt.Text = "Enter a number:";
             // 
+            // lblNonParallelMessage
+            // 
+            lblNonParallelMessage.AutoSize = true;
+            lblNonParallelMessage.Location = new Point(544, 328);
+            lblNonParallelMessage.Name = "lblNonParallelMessage";
+            lblNonParallelMessage.Size = new Size(33, 15);
+            lblNonParallelMessage.TabIndex = 7;
+            lblNonParallelMessage.Text = "Time";
+            // 
+            // lblParallelMessage
+            // 
+            lblParallelMessage.AutoSize = true;
+            lblParallelMessage.Location = new Point(696, 328);
+            lblParallelMessage.Name = "lblParallelMessage";
+            lblParallelMessage.Size = new Size(33, 15);
+            lblParallelMessage.TabIndex = 8;
+            lblParallelMessage.Text = "Time";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblParallelMessage);
+            Controls.Add(lblNonParallelMessage);
             Controls.Add(lblDownsizingInputPrompt);
             Controls.Add(tbDownsizingFactorInput);
             Controls.Add(lblPictureBoxInfo);
@@ -146,5 +168,7 @@
         private Label lblPictureBoxInfo;
         private TextBox tbDownsizingFactorInput;
         private Label lblDownsizingInputPrompt;
+        private Label lblNonParallelMessage;
+        private Label lblParallelMessage;
     }
 }
