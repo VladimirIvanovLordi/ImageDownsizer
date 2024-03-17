@@ -55,8 +55,7 @@ namespace ImageDownsizer
 
         private void btnDownsizeParallel_Click(object sender, EventArgs e)
         {
-            if (!GetDownsizingFactorFromTextBox())
-                return;
+            MessageBox.Show("NOT IMPLEMENTED!");
         }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -87,9 +86,9 @@ namespace ImageDownsizer
 
             downsizingFactor = double.Parse(tbDownsizingFactorInput.Text) / 100.0;
 
-            if (downsizingFactor == 0)
+            if (downsizingFactor == 0 || downsizingFactor < 0 || downsizingFactor > 100)
             {
-                MessageBox.Show("Downsizing factor cannot be 0!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Downsizing factor must be bigger than 0 and smaller than 100!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageDownsizer
 {
-    public static class BilinearInterpolationNonParallelDownsizer
+    //NOT COMPLETE
+    public static class BilinearInterpolationParallelDownsizer
     {
         private static Bitmap originalImage;
         private static Bitmap resizedImage;
@@ -27,8 +27,8 @@ namespace ImageDownsizer
 
         public static Bitmap DownsizeImage(Bitmap originalImage, double downsizeFactor)
         {
-            BilinearInterpolationNonParallelDownsizer.originalImage = originalImage;
-            BilinearInterpolationNonParallelDownsizer.downsizingFactor = downsizeFactor;
+            BilinearInterpolationParallelDownsizer.originalImage = originalImage;
+            BilinearInterpolationParallelDownsizer.downsizingFactor = downsizeFactor;
 
             //
             CalculateNewImageSize();
@@ -58,9 +58,20 @@ namespace ImageDownsizer
 
             Marshal.Copy(originalImageData.Scan0, originalPixelArray, 0, originalPixelArray.Length);
 
-            //
-            FillNewBitmap(originalStride, resizedStride, originalPixelSize, resizedPixelSize);
-            //
+            int numberOfLogicalCores = Environment.ProcessorCount;
+            Thread[] threads = new Thread[numberOfLogicalCores];
+            
+            for (int i = 0; i < numberOfLogicalCores; i++)
+            {
+                threads[i] = new Thread(() => FillNewBitmap(originalStride, resizedStride, originalPixelSize, resizedPixelSize, i));
+                threads[i].Start();
+            }
+            //FillNewBitmap(originalStride, resizedStride, originalPixelSize, resizedPixelSize);
+            
+            foreach (Thread thread in threads)
+            {
+                thread.Join();
+            }
 
             Marshal.Copy(resizedPixelArray, 0, resizedImageData.Scan0, resizedPixelArray.Length);
 
@@ -70,8 +81,15 @@ namespace ImageDownsizer
 
             return resizedImage;
         }
-        public static void FillNewBitmap(int originalStride, int resizedStride, int originalPixelSize, int resizedPixelSize)
+        public static void FillNewBitmap(int originalStride, int resizedStride, int originalPixelSize, int resizedPixelSize, int segmentForParallelProcessing)
         {
+
+            // segmentForParallelProcessing not implemented
+            // was supposed to divide the bitmap array that we got into appropriate number of pieces
+            // and give each thread a piece with calculated size (starting and ending position) to process
+
+
+
             for (int yIterator = 0; yIterator < newImageHeight; yIterator++)
             {
                 for (int xIterator = 0; xIterator < newImageWidth; xIterator++)
