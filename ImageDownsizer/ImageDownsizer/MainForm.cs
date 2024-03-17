@@ -33,6 +33,16 @@ namespace ImageDownsizer
             if(!GetDownsizingFactorFromTextBox())
                 return;
 
+            if(pbSelectedImage.Image == null)
+            {
+                MessageBox.Show("Select an image to downsize!");
+                return;
+            }
+
+            //Thread downsizingThread = new Thread()
+
+            pbSelectedImage.Image = BilinearInterpolationNonParallelDownsizer.DownsizeImage(selectedImage, downsizingFactor);
+
         }
 
         private void btnDownsizeParallel_Click(object sender, EventArgs e)
@@ -66,7 +76,7 @@ namespace ImageDownsizer
                 return false;
             }
 
-            downsizingFactor = double.Parse(tbDownsizingFactorInput.Text);
+            downsizingFactor = double.Parse(tbDownsizingFactorInput.Text) / 100.0;
 
             if (downsizingFactor == 0)
             {

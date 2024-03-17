@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|c:\\users\\foxy\\!!!myfolder\\university\\year 4\\sem 1\\parallel programming\\imagedownsizer\\imagedownsizer\\imagedownsizer\\bilinearinterpolationnonparalleldownsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\bilinearinterpolationnonparalleldownsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|c:\\users\\foxy\\!!!myfolder\\university\\year 4\\sem 1\\parallel programming\\imagedownsizer\\imagedownsizer\\imagedownsizer\\bilinearinterpolationnonparalleldownsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|solutionrelative:imagedownsizer\\bilinearinterpolationnonparalleldownsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8AF77A5-BAB0-422E-A913-2C8548E0754E}|ImageDownsizer\\ImageDownsizer.csproj|C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\imagedownsizer\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -39,13 +39,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.cs",
               "RelativeDocumentMoniker": "ImageDownsizer\\MainForm.cs",
               "ToolTip": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\MainForm.cs",
               "RelativeToolTip": "ImageDownsizer\\MainForm.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAcwEQAAABKAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowCsAAAB9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-16T14:33:01.382Z",
               "IsPinned": true,
@@ -53,13 +53,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BilinearInterpolationNonParallelDownsizer.cs",
               "DocumentMoniker": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\BilinearInterpolationNonParallelDownsizer.cs",
               "RelativeDocumentMoniker": "ImageDownsizer\\BilinearInterpolationNonParallelDownsizer.cs",
               "ToolTip": "C:\\Users\\Foxy\\!!!MYFOLDER\\University\\Year 4\\Sem 1\\Parallel Programming\\ImageDownsizer\\ImageDownsizer\\ImageDownsizer\\BilinearInterpolationNonParallelDownsizer.cs",
               "RelativeToolTip": "ImageDownsizer\\BilinearInterpolationNonParallelDownsizer.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwB4AAAAAAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAowGIAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-16T23:34:38.649Z",
               "IsPinned": true,

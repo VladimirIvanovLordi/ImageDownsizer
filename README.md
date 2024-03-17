@@ -1,6 +1,10 @@
 # ImageDownsizer
 For the university homework to create an image downsizer that works both parallel and non-parallel.
 
+# Bilinear Interpolation implemented in python that helped a lot
+https://meghal-darji.medium.com/implementing-bilinear-interpolation-for-image-resizing-357cbb2c2722<br>
+I also used ChatGPT 3.5 to assist with implementing the Bilinear Interpolation in C#.
+
 # Image sourcing
 dragon - https://www.google.bg/search?sca_upv=1&sca_upv=1&q=dragon&tbm=isch#imgrc=_PyfQx24FlVpUM<br>
     ^ extracted with https://extract.pics/<br>
