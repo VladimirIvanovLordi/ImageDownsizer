@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ImageDownsizer
 {
-    public static class BilinearInterpolationDownsizeNonParallel
+    public static class BilinearInterpolationNonParallelDownsizer
     {
         private static Bitmap originalImage;
+        private static Bitmap resizedImage;
 
         private static double downsizeFactor = 0;
         private static int newImageWidth = 0;
@@ -17,12 +18,19 @@ namespace ImageDownsizer
 
         public static Bitmap DownsizeImage(Bitmap originalImage, double downsizeFactor)
         {
-            BilinearInterpolationDownsizeNonParallel.originalImage = originalImage;
-            BilinearInterpolationDownsizeNonParallel.downsizeFactor = downsizeFactor;
+            BilinearInterpolationNonParallelDownsizer.originalImage = originalImage;
+            BilinearInterpolationNonParallelDownsizer.downsizeFactor = downsizeFactor;
 
             CalculateNewImageSize();
-            Bitmap resizedImage = new Bitmap(newImageWidth, newImageHeight);
+            resizedImage  = new Bitmap(newImageWidth, newImageHeight);
 
+            for (int yIterator = 0; yIterator < newImageHeight; yIterator++)
+            {
+                for (int xIterator = 0; xIterator < newImageWidth; xIterator++)
+                {
+
+                }
+            }
 
 
 

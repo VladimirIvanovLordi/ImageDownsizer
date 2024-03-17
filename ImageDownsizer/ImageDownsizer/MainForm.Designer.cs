@@ -37,8 +37,6 @@
             lblPictureBoxInfo = new Label();
             tbDownsizingFactorInput = new TextBox();
             lblDownsizingInputPrompt = new Label();
-            lblNonParallelMessage = new Label();
-            lblParallelMessage = new Label();
             ((System.ComponentModel.ISupportInitialize)pbSelectedImage).BeginInit();
             SuspendLayout();
             // 
@@ -118,31 +116,11 @@
             lblDownsizingInputPrompt.TabIndex = 6;
             lblDownsizingInputPrompt.Text = "Enter a number:";
             // 
-            // lblNonParallelMessage
-            // 
-            lblNonParallelMessage.AutoSize = true;
-            lblNonParallelMessage.Location = new Point(544, 328);
-            lblNonParallelMessage.Name = "lblNonParallelMessage";
-            lblNonParallelMessage.Size = new Size(33, 15);
-            lblNonParallelMessage.TabIndex = 7;
-            lblNonParallelMessage.Text = "Time";
-            // 
-            // lblParallelMessage
-            // 
-            lblParallelMessage.AutoSize = true;
-            lblParallelMessage.Location = new Point(696, 328);
-            lblParallelMessage.Name = "lblParallelMessage";
-            lblParallelMessage.Size = new Size(33, 15);
-            lblParallelMessage.TabIndex = 8;
-            lblParallelMessage.Text = "Time";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lblParallelMessage);
-            Controls.Add(lblNonParallelMessage);
             Controls.Add(lblDownsizingInputPrompt);
             Controls.Add(tbDownsizingFactorInput);
             Controls.Add(lblPictureBoxInfo);
@@ -168,7 +146,5 @@
         private Label lblPictureBoxInfo;
         private TextBox tbDownsizingFactorInput;
         private Label lblDownsizingInputPrompt;
-        private Label lblNonParallelMessage;
-        private Label lblParallelMessage;
     }
 }

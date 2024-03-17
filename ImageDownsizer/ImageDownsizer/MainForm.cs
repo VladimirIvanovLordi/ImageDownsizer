@@ -2,7 +2,10 @@ namespace ImageDownsizer
 {
     public partial class MainForm : Form
     {
+        double downsizingFactor = 0.0;
         string selectedImagePath = string.Empty;
+        Bitmap selectedImage;
+        
 
         public MainForm()
         {
@@ -27,12 +30,15 @@ namespace ImageDownsizer
 
         private void btnDownsizeNonParallel_Click(object sender, EventArgs e)
         {
+            if(!GetDownsizingFactorFromTextBox())
+                return;
 
         }
 
         private void btnDownsizeParallel_Click(object sender, EventArgs e)
         {
-
+            if (!GetDownsizingFactorFromTextBox())
+                return;
         }
 
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -45,9 +51,31 @@ namespace ImageDownsizer
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 selectedImagePath = openFileDialog.FileName;
-                pbSelectedImage.ImageLocation = selectedImagePath;
+                selectedImage = new Bitmap(selectedImagePath);
+                pbSelectedImage.Image = selectedImage;
             }
                 
+        }
+
+
+        public bool GetDownsizingFactorFromTextBox()
+        {
+            if (tbDownsizingFactorInput.Text.Equals(string.Empty) || tbDownsizingFactorInput.Text.Equals("."))
+            {
+                MessageBox.Show("Enter a real number value in the text box!");
+                return false;
+            }
+
+            downsizingFactor = double.Parse(tbDownsizingFactorInput.Text);
+
+            if (downsizingFactor == 0)
+            {
+                MessageBox.Show("Downsizing factor cannot be 0!");
+                return false;
+            }
+
+            return true;
+
         }
     }
 }
