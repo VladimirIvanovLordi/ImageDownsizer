@@ -76,7 +76,7 @@
             pbSelectedImage.Location = new Point(12, 12);
             pbSelectedImage.Name = "pbSelectedImage";
             pbSelectedImage.Size = new Size(525, 426);
-            pbSelectedImage.SizeMode = PictureBoxSizeMode.Zoom;
+            pbSelectedImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSelectedImage.TabIndex = 2;
             pbSelectedImage.TabStop = false;
             // 

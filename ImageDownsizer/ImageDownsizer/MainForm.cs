@@ -35,7 +35,7 @@ namespace ImageDownsizer
 
             if(pbSelectedImage.Image == null)
             {
-                MessageBox.Show("Select an image to downsize!");
+                MessageBox.Show("Select an image to downsize!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace ImageDownsizer
         {
             if (tbDownsizingFactorInput.Text.Equals(string.Empty) || tbDownsizingFactorInput.Text.Equals("."))
             {
-                MessageBox.Show("Enter a real number value in the text box!");
+                MessageBox.Show("Enter a real number value in the text box!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -80,7 +80,7 @@ namespace ImageDownsizer
 
             if (downsizingFactor == 0)
             {
-                MessageBox.Show("Downsizing factor cannot be 0!");
+                MessageBox.Show("Downsizing factor cannot be 0!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,18 +30,25 @@ namespace ImageDownsizer
             BilinearInterpolationNonParallelDownsizer.originalImage = originalImage;
             BilinearInterpolationNonParallelDownsizer.downsizingFactor = downsizeFactor;
 
+            //
             CalculateNewImageSize();
+            //
+
             resizedImage  = new Bitmap(newImageWidth, newImageHeight);
 
             originalImageData = originalImage.
                 LockBits(new Rectangle(0, 0, originalImage.Width, originalImage.Height), 
                 ImageLockMode.ReadOnly, originalImage.PixelFormat);
 
+            // could use newImageWidth and newImageHeight but I have problems with
+            // array out of range exception so I changed it for consistency
             resizedImageData = resizedImage.
-                LockBits(new Rectangle(0, 0, newImageWidth, newImageHeight),
-                ImageLockMode.WriteOnly, originalImage.PixelFormat);
+                LockBits(new Rectangle(0, 0, resizedImage.Width, resizedImage.Height),
+                ImageLockMode.WriteOnly, resizedImage.PixelFormat);
 
-            int pixelSize = Image.GetPixelFormatSize(originalImageData.PixelFormat) / 8;
+            //int pixelSize = Image.GetPixelFormatSize(originalImageData.PixelFormat) / 8;
+            int originalPixelSize = Image.GetPixelFormatSize(originalImageData.PixelFormat) / 8;
+            int resizedPixelSize = Image.GetPixelFormatSize(resizedImageData.PixelFormat) / 8;
 
             int originalStride = originalImageData.Stride;
             int resizedStride = resizedImageData.Stride;
@@ -50,7 +58,9 @@ namespace ImageDownsizer
 
             Marshal.Copy(originalImageData.Scan0, originalPixelArray, 0, originalPixelArray.Length);
 
-            FillNewBitmap(originalStride, resizedStride);
+            //
+            FillNewBitmap(originalStride, resizedStride, originalPixelSize, resizedPixelSize);
+            //
 
             Marshal.Copy(resizedPixelArray, 0, resizedImageData.Scan0, resizedPixelArray.Length);
 
@@ -62,15 +72,16 @@ namespace ImageDownsizer
             //TODO must calculate resizedImage
             return resizedImage;
         }
-        public static void FillNewBitmap(int originalStride, int resizedStride)
+        public static void FillNewBitmap(int originalStride, int resizedStride, int originalPixelSize, int resizedPixelSize)
         {
             for (int yIterator = 0; yIterator < newImageHeight; yIterator++)
             {
                 for (int xIterator = 0; xIterator < newImageWidth; xIterator++)
                 {
                     //Find x and y coordinates in original image
-                    double originalX = xIterator * originalImage.Width / (double)newImageWidth;
-                    double originalY = yIterator * originalImage.Height / (double)newImageHeight;
+                    double originalX = xIterator / downsizingFactor;
+                    double originalY = yIterator / downsizingFactor;
+
 
                     //Calculate neighbouring pixels in the original image of the one we want to create
                     //x = 0 y = 0 - upper left corner ; x+ y+ - lower right corner
@@ -88,15 +99,27 @@ namespace ImageDownsizer
                     int pixelIndexDownLeft = yDown * originalStride / 4 + xLeft;
                     int pixelIndexDownRight = yDown * originalStride / 4 + xRight;
 
-                    int interpolatedPixel = (int)(
-                                                (originalPixelArray[pixelIndexUpLeft] * (1 - distanceX) * (1 - distanceY)) +
-                                                (originalPixelArray[pixelIndexUpRight] * distanceX * (1 - distanceY)) +
-                                                (originalPixelArray[pixelIndexDownLeft] * (1 - distanceX) * distanceY) +
-                                                (originalPixelArray[pixelIndexDownRight] * distanceX * distanceY)
-                        );
+                    //int interpolatedPixel = (int)(
+                    //                            (originalPixelArray[pixelIndexUpLeft] * (1 - distanceX) * (1 - distanceY)) +
+                    //                            (originalPixelArray[pixelIndexUpRight] * distanceX * (1 - distanceY)) +
+                    //                            (originalPixelArray[pixelIndexDownLeft] * (1 - distanceX) * distanceY) +
+                    //                            (originalPixelArray[pixelIndexDownRight] * distanceX * distanceY)
+                    //    );
+
+                    int[] interpolatedPixel = new int[resizedPixelSize / 4];
+                    for(int i = 0; i < originalPixelSize / 4; i++)
+                    {
+                        double value = (originalPixelArray[pixelIndexUpLeft] * (1 - distanceX) * (1 - distanceY)) +
+                                       (originalPixelArray[pixelIndexUpRight] * distanceX * (1 - distanceY)) +
+                                       (originalPixelArray[pixelIndexDownLeft] * (1 - distanceX) * distanceY) +
+                                       (originalPixelArray[pixelIndexDownRight] * distanceX * distanceY);
+
+                        interpolatedPixel[i] = (int)Math.Round(value);
+                    }
 
                     int pixelIndex = yIterator * (resizedStride / 4) + xIterator;
-                    resizedPixelArray[pixelIndex] = interpolatedPixel;
+                    Array.Copy(interpolatedPixel, 0, resizedPixelArray, pixelIndex, resizedPixelSize / 4);
+                    //resizedPixelArray[pixelIndex] = interpolatedPixel;
 
                 }
             }
@@ -106,6 +129,7 @@ namespace ImageDownsizer
         {
             newImageHeight = (int)Math.Round(originalImage.Height * downsizingFactor);
             newImageWidth = (int)Math.Round(originalImage.Width * downsizingFactor);
+            // Math.Round
         }
     }
 }
